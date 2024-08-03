@@ -13,7 +13,7 @@ export default function Home() {
     setLoading(true);
     try {
       const profileUsername = url.split("/").filter(Boolean).pop();
-      const response = await axios.get(`https://www.instagram.com/${profileUsername}/?__a=1`);
+      const response = await axios.get(`/api/instagram?username=${profileUsername}`);
       const mediaItems = response.data.graphql.user.edge_owner_to_timeline_media.edges;
 
       const zip = new JSZip();
